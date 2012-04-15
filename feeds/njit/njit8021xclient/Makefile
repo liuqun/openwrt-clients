@@ -13,7 +13,7 @@ PKG_RELEASE:=1
 PKG_VERSION:=1.1
 PKG_SOURCE_URL:=https://github.com/downloads/liuqun/njit8021xclient/
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_MD5SUM:=MD5=cb7ec27c13fcd20458a218a8dda85ad2
+PKG_MD5SUM:=cb7ec27c13fcd20458a218a8dda85ad2
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -33,7 +33,7 @@ endef
 
 CONFIGURE_ARGS += \
 	--program-prefix="njit-" \
-    $(NULL)
+	$(NULL)
 
 define Build/Prepare
 $(call Build/Prepare/Default)
