@@ -11,7 +11,7 @@ include $(INCLUDE_DIR)/kernel.mk
 PKG_NAME:=njit8021xclient
 PKG_RELEASE:=1
 PKG_VERSION:=1.1
-PKG_SOURCE_URL:=http://localhost/
+PKG_SOURCE_URL:=https://github.com/downloads/liuqun/njit8021xclient/
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_MD5SUM:=MD5=cb7ec27c13fcd20458a218a8dda85ad2
 
