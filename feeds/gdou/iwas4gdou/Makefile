@@ -16,15 +16,15 @@ PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/njit8021xclient
+define Package/iwas4gdou
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=GDOU 802.1X client program
-  URL:=http://liuqun.github.com/njit8021xclient
+  TITLE:=I was for GDOU 802.1X client program
+  URL:=http://github.com/liuqun/iwas4gdou
   DEPENDS:=+libpcap
 endef
 
-define Package/njit8021xclient/description
+define Package/iwas4gdou/description
  802.1X client from Guangdong Ocean University
 endef
 
