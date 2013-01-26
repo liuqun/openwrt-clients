@@ -33,6 +33,12 @@ define Build/Prepare
 $(call Build/Prepare/Default)
 endef
 
+
+CONFIGURE_VARS:= \
+  CPPFLAGS="$(TARGET_CPPFLAGS) -I$(STAGING_DIR)/usr/include -I$(STAGING_DIR)/usr/lib/libnet-1.1.x/include" \
+  LDFLAGS="$(TARGET_LDFLAGS) -L$(STAGING_DIR)/usr/lib -L$(STAGING_DIR)/usr/lib/libnet-1.1.x/lib" \
+  $(NULL)
+
 define Build/Configure
 $(call Build/Configure/Default)
 endef
