@@ -21,7 +21,8 @@ define Package/njit8021xclient
   CATEGORY:=Network
   TITLE:=NJIT 802.1X client program
   URL:=http://liuqun.github.com/njit8021xclient
-  DEPENDS:=+libpcap +libopenssl
+  DEPENDS:=+libpcap
+  PKG_BUILD_DEPENDS:=+libopenssl
 endef
 
 define Package/njit8021xclient/description
