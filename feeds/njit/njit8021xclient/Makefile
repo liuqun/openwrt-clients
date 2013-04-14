@@ -8,11 +8,11 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=njit8021xclient
-PKG_RELEASE:=sp1
-PKG_VERSION:=1.2
+PKG_RELEASE:=testing
+PKG_VERSION:=1.3
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_MD5SUM:=e56f158d6a2b10c0b72edee5eba2da9c
+PKG_MD5SUM:=7d085a955a0cbecc82988687e47f3ff8
 
 include $(INCLUDE_DIR)/package.mk
 
