@@ -51,22 +51,22 @@ define Package/njit8021xclient/conffiles
 /etc/config/njit8021xclient.conf
 endef
 
-define Package/luci-app-njit8021xclient
-  SECTION:=luci
-  CATEGORY:=LuCI
+define Package/njit8021xclient-web
+  SECTION:=net
+  CATEGORY:=Network
   TITLE:=LuCI pages for NJIT 802.1X client
   URL:=http://sourceforge.net/projects/njit8021xclient/
   DEPENDS:=njit8021xclient
   PKGARCH:=all
 endef
 
-define Package/luci-app-njit8021xclient/description
+define Package/njit8021xclient-web/description
   $(call Package/njit8021xclient/Default/description)
   This package contains LuCI web pages of njit8021xclient.
   It will help you to set your 802.1X login password.
 endef
 
-define Package/luci-app-njit8021xclient/install
+define Package/njit8021xclient-web/install
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/i18n
 	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/model/cbi
@@ -83,4 +83,4 @@ define Package/njit8021xclient/description
 endef
 
 $(eval $(call BuildPackage,njit8021xclient))
-$(eval $(call BuildPackage,luci-app-njit8021xclient))
+$(eval $(call BuildPackage,njit8021xclient-web))
