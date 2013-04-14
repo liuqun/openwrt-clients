@@ -57,6 +57,7 @@ define Package/luci-app-njit8021xclient
   TITLE:=LuCI pages for NJIT 802.1X client
   URL:=http://sourceforge.net/projects/njit8021xclient/
   DEPENDS:=njit8021xclient
+  PKGARCH:=all
 endef
 
 define Package/luci-app-njit8021xclient/description
