@@ -9,12 +9,11 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=agan8021xclient
-PKG_VERSION:=1.1
+PKG_VERSION:=1.2
 PKG_RELEASE:=testing
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-PKG_MD5SUM:=526c9be166a6ae8fc5ef953e03c2c872
-
+PKG_MD5SUM:=d3df4ad26d1ed773e2a20d84036f8adc
 include $(INCLUDE_DIR)/package.mk
 
 define Package/agan8021xclient
