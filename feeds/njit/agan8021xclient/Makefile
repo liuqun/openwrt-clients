@@ -19,7 +19,7 @@ define Package/agan8021xclient
   SECTION:=net
   CATEGORY:=Network
   TITLE:=AGanNo2's 802.1X client program for H3C V2.20-0247
-  URL:=http://github.com/liuqun/
+  URL:=http://sourceforge.net/projects/agan8021xclient
   DEPENDS:=+libpcap +libnet1
   PKG_BUILD_DEPENDS:=+libopenssl
 endef
