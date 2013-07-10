@@ -1,0 +1,20 @@
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>README</title>
+</head>
+<body>
+<pre>编译OpenWRT路由器版本srun程序的方法：
+假定你正在编译trunk版本的OpenWRT，请将本压缩包里的sysu8021xclient目录，放到你的trunk/package目录里面。
+执行make menuconfig命令，到菜单里选Network--》，进去选中编译sysu8021xlclient，保存退出。
+make prepare
+make package/sysu8021xclient/compile
+make package/sysu8021xclient/install
+成功之后可以在bin目录里面找到名为sysu8021xlient-1.0_unstable-brcm63xx.ipk的安装包
+
+代码移植 by 阿群1986（liuqun68@gmail.com）
+首次发布时间：2013-7
+持续更新：http://github.com/liuqun/openwrt-feeds-njit/sysu/sysu8021xclient
+</pre>
+</body>
+</html>
