@@ -7,22 +7,22 @@
 
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=sysu8021xclient
+PKG_NAME:=scutclient
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 PKG_FIXUP:=autoreconf
 PKG_VERSION:=1.0
 PKG_RELEASE:=unstable
 include $(INCLUDE_DIR)/package.mk
 
-define Package/sysu8021xclient
+define Package/scutclient
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=SYSU client by vrqq.srOOrz
-  URL:=http://github.com/liuqun/openwrt-feeds-njit/sysu/sysu8021xclient
+  TITLE:=SCUT client by Forward
+  URL:=http://github.com/liuqun/openwrt-feeds-njit/scut/scutclient
 endef
 
-define Package/sysu8021xclient/description
-  SYSU client by vrqq.srOOrz
+define Package/scutclient/description
+  SCUT client by Forward
 endef
 
 define Build/Prepare
@@ -35,9 +35,9 @@ define Build/Configure
 $(call Build/Configure/Default)
 endef
 
-define Package/sysu8021xclient/install
+define Package/scutclient/install
 	$(MAKE) -C $(PKG_BUILD_DIR) install-exec DESTDIR=$(1)
 endef
 
-$(eval $(call BuildPackage,sysu8021xclient))
+$(eval $(call BuildPackage,scutclient))
 
