@@ -19,6 +19,8 @@ define Package/scutclient
   CATEGORY:=Network
   TITLE:=SCUT client by Forward
   URL:=http://github.com/liuqun/openwrt-feeds-njit/scut/scutclient
+  DEPENDS:=+libpcap
+  PKG_BUILD_DEPENDS:=+libopenssl
 endef
 
 define Package/scutclient/description
@@ -30,6 +32,14 @@ define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	$(CP) ./src/* $(PKG_BUILD_DIR)/
 endef
+
+CONFIGURE_ARGS += \
+  --program-prefix="scut" \
+  $(NULL)
+CONFIGURE_VARS:= \
+  CPPFLAGS="$(TARGET_CPPFLAGS) -I$(STAGING_DIR)/usr/include" \
+  LDFLAGS="$(TARGET_LDFLAGS) -L$(STAGING_DIR)/usr/lib" \
+  $(NULL)
 
 define Build/Configure
 $(call Build/Configure/Default)
