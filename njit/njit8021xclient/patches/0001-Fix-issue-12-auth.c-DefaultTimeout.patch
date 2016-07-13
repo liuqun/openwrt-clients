@@ -1,0 +1,40 @@
+From 3a5603b3d7b876a07f03eb633bb48ecc5edcb4c5 Mon Sep 17 00:00:00 2001
+From: Liu Qun <517067180@qq.com>
+Date: Wed, 13 Jul 2016 21:03:07 +0800
+Subject: [PATCH] =?UTF-8?q?Fix=20issue=20#12=20auth.c=20=E4=B8=AD=E8=B6=85?=
+ =?UTF-8?q?=E6=97=B6=E5=8F=82=E6=95=B0=20DefaultTimeout=20=E8=AE=BE?=
+ =?UTF-8?q?=E7=BD=AE=E9=94=99=E8=AF=AF=E5=AF=BC=E8=87=B4=E8=AE=A4=E8=AF=81?=
+ =?UTF-8?q?=E5=A4=B1=E8=B4=A5?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+在libpcap-1.3及以前版本下，DefaultTimeout原先设置为60秒但仍然工作正常。
+新版本的libpcap下就会如上所说出现大时延导致认证失败。
+顺便猜测下，为什么以前（libpcap-1.3）没有发现这个问题？
+根据libpcap文档所说，这个参数在一些平台及网卡上有兼容性问题，
+即设置该值后，在一些网卡上无效，而变为零。
+也就是说可能是老版本libpcap的BUG将这个njit8021xclient的BUG抵消了，
+DefaultTimeout没有发挥作用；而新版本的libpcap中，这个值又开始工作了
+
+Signed-off-by: Liu Qun <517067180@qq.com>
+---
+ src/auth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/auth.c b/src/auth.c
+index 50503dd..fb1d552 100644
+--- a/src/auth.c
++++ b/src/auth.c
+@@ -84,7 +84,7 @@ int Authentication(const char *UserName, const char *Password, const char *Devic
+ 	uint8_t	MAC[6];
+ 	char	FilterStr[100];
+ 	struct bpf_program	fcode;
+-	const int DefaultTimeout=60000;//设置接收超时参数，单位ms
++	const int DefaultTimeout=100;//设置接收超时参数，单位ms
+ 
+ 	// NOTE: 这里没有检查网线是否已插好,网线插口可能接触不良
+ 	
+-- 
+1.9.4.msysgit.1
+
