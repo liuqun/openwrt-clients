@@ -7,12 +7,3 @@ index 8363241..76e517f 100644
  ACLOCAL_AMFLAGS = -I m4
  sbin_PROGRAMS = \
  		client \
-diff --git a/src/md5-buildin/Makefile.am b/src/md5-buildin/Makefile.am
-index af8c578..e3411a8 100644
---- a/src/md5-buildin/Makefile.am
-+++ b/src/md5-buildin/Makefile.am
-@@ -1,3 +1,4 @@
-+AUTOMAKE_OPTIONS = subdir-objects
- bin_PROGRAMS = md5test \
- 		$(NULL)
- md5test_SOURCES = md5test.c \
