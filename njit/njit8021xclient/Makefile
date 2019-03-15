@@ -13,6 +13,7 @@ PKG_VERSION:=1.3
 PKG_SOURCE_URL:=@SF/$(PKG_NAME)
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_MD5SUM:=1b19ac98ba90e18aff7aeefa431753e2
+PKG_FIXUP:=autoreconf
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -21,8 +22,7 @@ define Package/njit8021xclient
   CATEGORY:=Network
   TITLE:=NJIT 802.1X client program
   URL:=http://liuqun.github.com/njit8021xclient
-  DEPENDS:=+libpcap
-  PKG_BUILD_DEPENDS:=+libopenssl
+  DEPENDS:=+libpcap +libopenssl
 endef
 
 define Package/njit8021xclient/Default/description
