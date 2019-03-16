@@ -1,0 +1,14 @@
+#!/bin/sh
+
+operstate="/sys/class/net/$3/operstate"
+if [ ! -f "$operstate" ]; then
+	echo "Error: No such file: $operstate"
+	exit 1
+fi
+while true
+do
+	if [ "$(cat $operstate)" = up ]; then
+		njit-client "$@"
+	fi
+	sleep 1
+done

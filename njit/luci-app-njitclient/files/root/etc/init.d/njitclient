@@ -1,0 +1,43 @@
+#!/bin/sh /etc/rc.common
+START=50
+PIDFILE=/var/run/njit-looper.pid
+
+run_njit()
+{
+	local enable
+	config_get_bool enable $1 enable
+	
+	if [ $enable ]; then
+		local username
+		local password
+		local domain
+		local ifname
+		
+		config_get username $1 username
+		config_get password $1 password
+		config_get domain $1 domain
+		config_get ifname $1 ifname
+		
+		if [ "$domain" != "" ]; then
+			start-stop-daemon -Sbmp $PIDFILE -x njit-looper -- $username@$domain $password $ifname
+		else
+			start-stop-daemon -Sbmp $PIDFILE -x njit-looper -- $username $password $ifname
+		fi
+		
+		echo "NJIT Client has started."
+	fi
+}
+
+start()
+{
+	config_load njitclient
+	config_foreach run_njit login
+}
+
+stop()
+{
+	start-stop-daemon -Kn sh -p $PIDFILE -s 9
+	killall -9 njit-client
+	killall -9 udhcpc
+}
+
